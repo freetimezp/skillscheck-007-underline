@@ -1,18 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Skill Check 007 — Underline Animation and Animated CSS Pseudo-elements."
+        />
+        <meta name="theme-color" content="#07131f" />
+        <title>007 — Underline Motion | Skill Check</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project</title>
-</head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
 
-<body>
-    start
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="noise"></div>
 
-    <script src="./assets/js/main.js"></script>
-</body>
+        <header class="topbar">
+            <a class="brand" href="./" aria-label="Skill Check home">
+                <span class="brand-mark"><i></i><i></i><i></i></span>
+                <span>FIELD<span class="brand-slash">/</span>NOTES</span>
+            </a>
 
+            <div class="top-meta">
+                <span class="live-dot"></span> FRONTEND PRACTICE
+                <span class="meta-divider">/</span> 007
+            </div>
+
+            <a
+                class="roadmap-link"
+                href="https://freetimezp.github.io/roadmap-web-coding/"
+            >
+                ROADMAP <span>↗</span>
+            </a>
+        </header>
+
+        <main class="shell">
+            <section class="intro" id="intro">
+                <div class="intro-copy">
+                    <div class="eyebrow">
+                        <span>CSS MOTION SERIES</span>
+                        <span class="eyebrow-line"></span>
+                        <span>SKILL CHECK 007</span>
+                    </div>
+
+                    <h1>Make the line<br /><em>move.</em></h1>
+                    <p class="intro-description">
+                        Test your understanding of animated underlines,
+                        pseudo-elements, transforms, transitions and the little
+                        details that make interfaces feel alive.
+                    </p>
+
+                    <div class="intro-bottom">
+                        <div class="intro-stat">
+                            <strong>20</strong><span>QUESTIONS</span>
+                        </div>
+                        <div class="intro-stat">
+                            <strong>~8</strong><span>MINUTES</span>
+                        </div>
+                        <div class="intro-stat">
+                            <strong>01</strong><span>CSS FOCUS</span>
+                        </div>
+                    </div>
+
+                    <button class="button button-primary" id="startButton">
+                        Start skill check <span>↗</span>
+                    </button>
+                </div>
+
+                <div class="intro-art" aria-hidden="true">
+                    <div class="art-index">
+                        FIG. 007 <span>— HOVER STUDY</span>
+                    </div>
+
+                    <div class="art-word">
+                        motion<span class="art-period">.</span>
+                        <b class="art-underline"></b>
+                    </div>
+
+                    <div class="art-caption">
+                        <span>01 / PSEUDO-ELEMENT</span>
+                        <span>02 / TRANSFORM</span>
+                    </div>
+
+                    <div class="art-cross cross-a">+</div>
+                    <div class="art-cross cross-b">+</div>
+                    <div class="art-coordinate">
+                        52° 31' 12.0"N<br />13° 24' 18.0"E
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="quiz-panel hidden"
+                id="quizPanel"
+                aria-live="polite"
+            >
+                <div class="quiz-topline">
+                    <div>
+                        <span class="section-kicker">SKILL CHECK / 007</span>
+                        <h2>Underline mechanics</h2>
+                    </div>
+                    <div class="question-counter">
+                        <span id="currentNumber">01</span>
+                        <span class="counter-slash">/</span>
+                        <span id="totalNumber">20</span>
+                    </div>
+                </div>
+
+                <div class="progress-track"><span id="progressBar"></span></div>
+
+                <div class="quiz-layout">
+                    <div class="question-column">
+                        <div class="question-meta">
+                            <span id="questionType">SINGLE CHOICE</span>
+                            <span id="questionTopic">PSEUDO-ELEMENTS</span>
+                        </div>
+
+                        <h3 id="questionText"></h3>
+                        <p class="question-hint" id="questionHint"></p>
+                        <pre
+                            class="code-card hidden"
+                            id="codeCard"
+                        ><code id="codeText"></code></pre>
+
+                        <div class="options" id="options"></div>
+                        <div
+                            class="feedback hidden"
+                            id="feedback"
+                            role="status"
+                        ></div>
+
+                        <div class="question-actions">
+                            <span class="select-note" id="selectNote">
+                                Choose one answer to continue.
+                            </span>
+                            <button
+                                class="button button-primary"
+                                id="checkButton"
+                                disabled
+                            >
+                                Check answer <span>→</span>
+                            </button>
+                            <button
+                                class="button button-primary hidden"
+                                id="nextButton"
+                            >
+                                Next question <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <aside class="quiz-aside">
+                        <div class="aside-label">YOUR SESSION</div>
+                        <div class="aside-progress">
+                            <div class="ring" id="ring">
+                                <span id="ringValue">0%</span>
+                            </div>
+
+                            <div>
+                                <strong id="answeredCount">0 / 20</strong>
+                                <small>ANSWERED</small>
+                            </div>
+                        </div>
+
+                        <div class="aside-rule"></div>
+                        <p class="aside-tip">
+                            <span>↳</span> Read the code carefully. Some
+                            questions allow more than one correct answer.
+                        </p>
+                        <div class="aside-bottom">
+                            CSS / INTERACTION<br />NO TIME LIMIT
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section
+                class="results hidden"
+                id="resultsPanel"
+                aria-live="polite"
+            >
+                <div class="results-kicker">SESSION COMPLETE / 007</div>
+                <div class="results-grid">
+                    <div>
+                        <h2 id="resultTitle">Nice work<span>.</span></h2>
+                        <p id="resultMessage"></p>
+                        <div class="result-actions">
+                            <button
+                                class="button button-primary"
+                                id="restartButton"
+                            >
+                                Try again <span>↻</span>
+                            </button>
+                            <a
+                                class="button button-quiet"
+                                href="https://freetimezp.github.io/roadmap-web-coding/"
+                            >
+                                Back to roadmap ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="score-orbit">
+                        <div class="score-number" id="scoreNumber">0%</div>
+                        <div class="score-label">YOUR SCORE</div>
+                    </div>
+                </div>
+
+                <div class="result-stats">
+                    <div>
+                        <span>CORRECT</span>
+                        <strong id="correctStat">0 / 20</strong>
+                    </div>
+
+                    <div>
+                        <span>ATTEMPTS</span><strong id="attemptStat">1</strong>
+                    </div>
+
+                    <div>
+                        <span>BEST SCORE</span><strong id="bestStat">0%</strong>
+                    </div>
+                </div>
+
+                <div class="save-note" id="saveNote">
+                    Your result is saved in this browser and can be read by the
+                    learning roadmap.
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>FIELD/NOTES <i>—</i> FRONTEND STUDIES</span>
+                <span>DESIGNED FOR THE CURIOUS <b>✳</b></span>
+            </footer>
+        </main>
+
+        <script src="./assets/js/main.js" defer></script>
+    </body>
 </html>
